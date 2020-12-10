@@ -1,4 +1,8 @@
 <?php
+/********* Partie 2 *****************************************/
+/********* B. Les instructions de base **********************/
+/********* I. Déclaration / Affectation de variable *********/
+
 
 // Déclarer une variable
 
