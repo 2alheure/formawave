@@ -8,10 +8,9 @@
 /*  1)
 
     Quelle fonction, qui opère sur des
-    chaînes de caractères, peut venir
-    remplacer l'opérateur de concaténation ?
+    chaînes de caractères, en calcule sa taille ?
     (La documentation est votre amie ;-))
-    => ?
+    => strlen
 */
 
 
@@ -24,15 +23,16 @@ $phrase = 'Ceci servira de phrase de test ; '
 */
 
 // En majuscules
-
+echo strtoupper($phrase) . '<br />';
 
 // En rouge
-
+echo '<p style="color: red">' . $phrase . '</p><br />';
 
 // En minuscules
-
+echo strtolower($phrase) . '<br />';
 
 // En triple (interdiction de l'afficher 3 fois d'affilée !)
-
+echo str_repeat($phrase, 3) . '<br />';
 
 // En remplaçant "Lorem Ipsum" par ce qui vous fait plaisir ;-)
+echo str_replace('Lorem Ipsum', 'Ce qui vous fait plaisir', $phrase);
