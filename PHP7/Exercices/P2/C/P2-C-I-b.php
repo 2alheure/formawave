@@ -9,7 +9,7 @@
 
 
 // Affichez la phrase suivante, remplie avec les bonnes valeurs
-// "Le mois {mois} comporte {nombre} jours."
+// "Le mois de {mois} comporte {nombre} jours."
 
 
 // Imaginez une solution pour traiter le cas particulier des années bissextiles
