@@ -42,7 +42,7 @@ var_dump(3 > 1);
 
 /*  2)
 
-    Donnez les expressions en PHP correspondant 
+    Donnez les expressions en PHP 
     permettant de répondre aux questions ci-dessous :
 
     Trois vaut-il plus que deux ?
@@ -53,10 +53,10 @@ var_dump(3 > 1);
     ou bien dix demi-tartes ?
     => 45 / 8 > 10 / 2
 
-    La variable `x` est-elle paire ?
+    La variable `x` est-elle paire ? (Si jamais elle est définie)
     => $x % 2 == 0
 
     La variable `x` vaut-elle exactement la chaîne de caractères 
-    composée du nombre cinquante-et-un ?
+    composée du nombre cinquante-et-un ? (Si jamais elle est définie)
     => $x === '51'
 */

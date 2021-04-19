@@ -5,7 +5,7 @@
 // Exercice : écrire une fonction de tri
 
 // $tableau contient des nombres
-$tableau = array(1, 2, 3, 4, 5, 5, 5, 7, 8, 12, 14, 42, 1337, 18, 6357, 61384, 973,16897);
+$tableau = array(1, 2, 3, 4, 5, 5, 5, 7, 8, 12, 14, 42, 1337, 18, 6357, 61384, 973, 16897);
 
 // On mélange le tableau
 shuffle($tableau);

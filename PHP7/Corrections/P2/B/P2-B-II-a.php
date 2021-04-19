@@ -31,10 +31,10 @@ var_dump(3 + 1);
     -4                  = -4
     40 * 3              = 120
     10 + 6 / 3          = 12
-    (10 + 6) / 3        = 5.3333333...
-    90 % 4 * 3          = 6
+    (10 + 6) / 3        = 5.33333333
+    (90 % 4 = 2) * 3    = 6
     2 ** 10             = 1024
-    2 ** 3 * 3 ** 2     = 72
+    (2 ** 3) * (3 ** 2) = 72
 */
 
 /*  2)
@@ -46,14 +46,17 @@ var_dump(3 + 1);
     => 2 ** 2
 
     Le quart du tiers de quarante-cinq
-    => 45 / 3 / 4
+    => 45 / 3 / 4 = 3.75
 
     Le reste de la division de trente par quatre
-    => 30 % 4
+    => 30 % 4 = 2
 
     
     Le périmètre d'un cercle de rayon trois centimètres
     (Il existe une constante PHP pour exprimer π (pi))
-    => 2 * M_PI * 3     // Le périmètre d'un cercle = 2 x π x rayon
+    $rayon = 3;
+    => 2 * $rayon * M_PI
+    $diametre = 2 * $rayon;
+    => $diametre * pi()
 
 */
