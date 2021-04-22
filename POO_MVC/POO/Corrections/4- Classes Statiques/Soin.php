@@ -2,7 +2,6 @@
 
 /**
  * Créez une classe PHP qui représente un soin (générique)
- * Cette classe est équipable (cf. partie 3)
  * 
  * Un soin est défini par le nombre de points de vie qu'il peut rendre en une seul utilisation
  * 
