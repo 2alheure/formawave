@@ -9,7 +9,6 @@
  * 		- Prendre la fuite (les lâches)
  *      - Chevaucher
  */
-namespace Monture;
 
 class Cheval {
     public $vitesse = 40;
