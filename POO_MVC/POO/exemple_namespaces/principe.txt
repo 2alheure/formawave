@@ -1,0 +1,42 @@
+1. namespace = "dossier virtuel"
+        namespace Foo;
+        class Truc {}
+        new Foo\Truc;
+
+        namespace Bar\Baz;
+        class Bidule {}
+        new Bar\Baz\Bidule;
+
+2. Ca peut éviter des conflits (en rangeant dans des "dossiers virtuels" différents)
+        namespace Bar;
+
+        class Truc {}
+
+        new Bar\Truc;   // Ca appelle Truc du namespace Bar, et pas de Foo
+
+3. Il vaut mieux toujours utiliser le nom complet (Fully Qualified Class Name) pour appeler une classe
+
+4. Si on ne veut pas répéter ce FQCN à chaque fois, on fait un use
+        use Foo\Truc;
+
+        new Truc;   // Plus besoin de réécrire Foo\Truc
+
+5. Quand on use des FQCN, on peut leur donner un alias
+        use Foo\Truc;
+        use Bar\Truc as Machin;  // Obligé sinon on peut pas différencier Truc et Truc
+
+
+(Penser à ranger ses fichiers en fonction de leur namespace)
+
+
+6. Pour ne pas avoir besoin d'écrire les require, 
+    on doit indiquer à PHP où aller chercher les classes 
+    en fonction de leur FQCN.
+    On doit donc écrire une fonction qui reçoit le FQCN 
+    et fait le require, include, ... à notre place.
+        function chercherFQCN($fqcn) {
+            if ($fqcn == 'Foo\Truc') include 'mon/chemin/vers/Foo/Truc.php';
+        }
+
+7. Pour que PHP utilise notre fonction, on doit lui indiquer qu'elle existe avec spl_autoload_register.
+        spl_autoload_register('chercherFQCN');
