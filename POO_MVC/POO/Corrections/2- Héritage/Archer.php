@@ -1,10 +1,12 @@
 <?php
 
+namespace Characters;
+
 /**
  * Définissez la classe Archer, qui est un genre de Personnage
  */
 
-require_once '../1- Classes/Personnage.php';
+use Characters\Personnage;
 
 class Archer extends Personnage {
 
@@ -15,10 +17,6 @@ class Archer extends Personnage {
 
     protected $nb_fleches = 50;
     protected $huile_inflammable = 10;
-
-    // public function __construct(string $pseudo, string $age) {
-    //     parent::__construct($pseudo, $age);
-    // }
 
     public function fleche(Personnage $quelqu_un) {
         if ($this->aDesFleches()) {

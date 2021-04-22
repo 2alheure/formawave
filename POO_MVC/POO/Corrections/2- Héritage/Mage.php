@@ -1,10 +1,11 @@
 <?php
+namespace Characters;
 
 /**
  * Définissez la classe Mage, qui est un genre de Personnage
  */
 
-require_once '../1- Classes/Personnage.php';
+use Characters\Personnage;
 
 class Mage extends Personnage {
     public $pv = 200;

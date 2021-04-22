@@ -1,8 +1,12 @@
 <?php
 
+namespace Characters;
+
 /**
  * Définissez la classe Paladin, qui est un genre de Personnage
  */
+
+use Characters\Personnage;
 
 class Paladin {
     protected $pv = 500;
