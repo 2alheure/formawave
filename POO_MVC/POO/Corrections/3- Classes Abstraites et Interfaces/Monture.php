@@ -9,3 +9,15 @@
  * Faites en sorte que le Cheval (cf. partie 1) soit une monture.
  * Créez deux autres montures.
  */
+
+namespace Monture;
+
+use Monture\Chevauchable;
+
+abstract class Monture implements Chevauchable {
+    public $endurance;
+    public $vitesse;
+    public $pv;
+
+    abstract public function seRepose();
+}

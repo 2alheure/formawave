@@ -6,3 +6,8 @@
  * 
  * Implémentez ce contrat sur la classe Cheval (cf. partie 1)
  */
+namespace Monture;
+
+interface Chevauchable {
+    public function chevauche();
+}
