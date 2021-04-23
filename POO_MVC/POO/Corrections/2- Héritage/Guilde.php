@@ -1,5 +1,7 @@
 <?php
 
+namespace Structures;
+
 use Characters\Personnage;
 
 /**

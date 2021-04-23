@@ -1,8 +1,8 @@
 <?php
 
-namespace Monture;
+namespace Montures;
 
-use Monture\Monture;
+use Montures\Monture;
 
 class Ane extends Monture {
     public $vitesse = 25;       // ~2 fois moins vite qu'un cheval

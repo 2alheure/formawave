@@ -10,9 +10,9 @@
  * Créez deux autres montures.
  */
 
-namespace Monture;
+namespace Montures;
 
-use Monture\Chevauchable;
+use Montures\Chevauchable;
 
 abstract class Monture implements Chevauchable {
     public $endurance;

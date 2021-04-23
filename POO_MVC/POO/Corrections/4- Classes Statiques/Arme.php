@@ -10,3 +10,5 @@
  * 
  * Créez 3 armes distinctes
  */
+
+namespace Objects\Weapons;

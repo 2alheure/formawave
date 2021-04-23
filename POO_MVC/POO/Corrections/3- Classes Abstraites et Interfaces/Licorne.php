@@ -1,8 +1,8 @@
 <?php
 
-namespace Monture;
+namespace Montures;
 
-use Monture\Monture;
+use Montures\Monture;
 
 class Licorne extends Monture {
     public $vitesse = 80;       // 2 fois plus vite qu'un cheval

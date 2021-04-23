@@ -10,9 +10,9 @@
  *      - Chevaucher
  */
 
-namespace Monture;
+namespace Montures;
 
-use Monture\Monture;
+use Montures\Monture;
 
 class Cheval extends Monture {
     public $vitesse = 40;

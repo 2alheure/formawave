@@ -2,7 +2,8 @@
 
 namespace Characters;
 
-use Cheval;
+use Montures\Cheval;
+use Structures\Guilde;
 
 /**
  * Créez une classe PHP qui représente un personnage de jeu vidéo (type RPG)

@@ -10,6 +10,8 @@
  *      - Chevaucher
  */
 
+namespace Montures;
+
 class Cheval {
     public $vitesse = 40;
     public $endurance = 100;
