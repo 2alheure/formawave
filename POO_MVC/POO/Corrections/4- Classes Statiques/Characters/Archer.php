@@ -26,14 +26,14 @@ class Archer extends Personnage {
 
             if ($quelqu_un->estVivant()) {   // Si le personnage qu'on frappe est vivant
 
-                echo $this->pseudo . ' tire une flèche sur ' . $quelqu_un->pseudo;
+                $this->luiArrive('Il tire une flèche sur ' . $quelqu_un->pseudo);
 
                 $quelqu_un->subitDegats($degats);
             } else {
-                echo $this->pseudo . ' tire une flèche sur le cadavre de ' . $quelqu_un->pseudo;
+                $this->luiArrive('Il tire une flèche sur le cadavre de ' . $quelqu_un->pseudo);
             }
         } else {
-            echo 'L\'archer ' . $this->pseudo . ' n\'a plus de flèche.';
+            $this->luiArrive('Il n\'a plus de flèche.');
         }
     }
 
@@ -44,14 +44,14 @@ class Archer extends Personnage {
 
             if ($quelqu_un->estVivant()) {   // Si le personnage qu'on frappe est vivant
 
-                echo $this->pseudo . ' tire une flèche magique sur ' . $quelqu_un->pseudo;
+                $this->luiArrive('Il tire une flèche magique sur ' . $quelqu_un->pseudo);
 
                 $quelqu_un->subitDegats($degats);
             } else {
-                echo $this->pseudo . ' tire une flèche magique sur le cadavre de ' . $quelqu_un->pseudo;
+                $this->luiArrive('Il tire une flèche magique sur le cadavre de ' . $quelqu_un->pseudo);
             }
         } else {
-            echo 'L\'archer ' . $this->pseudo . ' n\'a plus de flèche.';
+            $this->luiArrive('Il n\'a plus de flèche.');
         }
     }
 
@@ -64,16 +64,16 @@ class Archer extends Personnage {
 
                 if ($quelqu_un->estVivant()) {   // Si le personnage qu'on frappe est vivant
 
-                    echo $this->pseudo . ' tire une flèche enflammée sur ' . $quelqu_un->pseudo;
+                    $this->luiArrive('Il tire une flèche enflammée sur ' . $quelqu_un->pseudo);
 
                     $quelqu_un->subitDegats($degats);
-                } else echo $this->pseudo . ' tire une flèche enflammée sur le cadavre de ' . $quelqu_un->pseudo;
-            } else echo 'L\'archer ' . $this->pseudo . ' n\'a plus d\'huile inflammable.';
-        } else echo 'L\'archer ' . $this->pseudo . ' n\'a plus de flèche.';
+                } else $this->luiArrive('Il tire une flèche enflammée sur le cadavre de ' . $quelqu_un->pseudo);
+            } else $this->luiArrive('Il n\'a plus d\'huile inflammable.');
+        } else $this->luiArrive('Il n\'a plus de flèche.');
     }
 
     public function tailleDesFleches() {
-        echo 'L\'archer ' . $this->pseudo . ' taille des flèches.';
+        $this->luiArrive('Il taille des flèches.');
         $this->nb_fleches += 10;
     }
 

@@ -1,4 +1,5 @@
 <?php
+
 namespace Characters;
 
 /**
@@ -16,7 +17,7 @@ class Mage extends Personnage {
 
     public function soigne(Personnage $quelqu_un) {
         if ($quelqu_un->estVivant()) {   // Si le personnage qu'on frappe est vivant
-            echo $this->pseudo . ' soigne ' . $quelqu_un->pseudo . '.';
+            $this->luiArrive('Il soigne ' . $quelqu_un->pseudo . '.');
 
             // Ma formule c'est : 10 + 10 % de la magie du personnage 
             // (arrondi à l'entier le plus proche)
@@ -27,13 +28,13 @@ class Mage extends Personnage {
         } else {
             // Sinon
 
-            echo 'On ne peut soigner un cadavre';
+            $this->luiArrive('On ne peut soigner un cadavre');
         }
     }
 
     public function bouleDeFeu(Personnage $quelqu_un) {
         if ($quelqu_un->estVivant()) {   // Si le personnage qu'on frappe est vivant
-            echo $this->pseudo . ' envoie une boule de feu sur ' . $quelqu_un->pseudo . '.';
+            $this->luiArrive('Il envoie une boule de feu sur ' . $quelqu_un->pseudo . '.');
 
             // Ma formule c'est : La magie + 10 % de l'âge du personnage 
             // (arrondi à l'entier le plus proche)
@@ -41,16 +42,11 @@ class Mage extends Personnage {
 
             // Le "quelqu'un" subit nos dégats
             $quelqu_un->subitDegats($degats);
-
-            // Si à présent il est mort
-            if (!$quelqu_un->estVivant()) {
-                echo 'Ce sort a été fatal à ' . $quelqu_un->pseudo . '.';
-            }
         } else {
             // Sinon
 
             if ($this->sagesse < 10) // Si le personnage n'est pas assez sage
-                echo $this->pseudo . ' s\'acharne sur le cadavre de ' . $quelqu_un->pseudo . '.';
+                $this->luiArrive('Il s\'acharne sur le cadavre de ' . $quelqu_un->pseudo . '.');
         }
     }
 

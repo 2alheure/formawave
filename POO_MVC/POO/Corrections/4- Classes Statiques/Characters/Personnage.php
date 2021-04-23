@@ -2,6 +2,7 @@
 
 namespace Characters;
 
+use Games\Narrateur;
 use Montures\Cheval;
 use Structures\Guilde;
 
@@ -32,15 +33,17 @@ class Personnage {
         $this->pseudo = $pseudo;
         $this->age = $age;
         $this->alignement = $alignement;
+
+        $this->luiArrive('Il est arrivé dans cette contrée.');
     }
 
     public function frappe(Personnage $quelqu_un, int $bonus_frappe = 0) {
 
         if ($quelqu_un->guilde == $this->guilde)
-            echo 'On tape pas les copains !';
+            $this->luiArrive('On tape pas les copains !');
 
         if ($quelqu_un->estVivant()) {   // Si le personnage qu'on frappe est vivant
-            echo $this->pseudo . ' frappe ' . $quelqu_un->pseudo . '.';
+            $this->luiArrive('Il frappe ' . $quelqu_un->pseudo . '.');
 
             // Ma formule c'est : La force - 10 % de l'âge du personnage 
             // (arrondi à l'entier le plus proche)
@@ -48,22 +51,17 @@ class Personnage {
 
             // Le "quelqu'un" subit nos dégats
             $quelqu_un->subitDegats($degats);
-
-            // Si à présent il est mort
-            if (!$quelqu_un->estVivant()) {
-                echo 'Ce coup a été fatal à ' . $quelqu_un->pseudo . '.';
-            }
         } else {
             // Sinon
 
             if ($this->sagesse < 10) // Si le personnage n'est pas assez sage
-                echo $this->pseudo . ' frappe le cadavre de ' . $quelqu_un->pseudo . '.';
+                $this->luiArrive('Il frappe le cadavre de ' . $quelqu_un->pseudo . '.');
         }
     }
 
     public function envoieSortSur(Personnage $quelqu_un) {
         if ($quelqu_un->estVivant()) {   // Si le personnage qu'on frappe est vivant
-            echo $this->pseudo . ' envoie un sort sur ' . $quelqu_un->pseudo . '.';
+            $this->luiArrive('Il envoie un sort sur ' . $quelqu_un->pseudo . '.');
 
             // Ma formule c'est : La magie + 10 % de l'âge du personnage 
             // (arrondi à l'entier le plus proche)
@@ -71,22 +69,17 @@ class Personnage {
 
             // Le "quelqu'un" subit nos dégats
             $quelqu_un->subitDegats($degats);
-
-            // Si à présent il est mort
-            if (!$quelqu_un->estVivant()) {
-                echo 'Ce sort a été fatal à ' . $quelqu_un->pseudo . '.';
-            }
         } else {
             // Sinon
 
             if ($this->sagesse < 10) // Si le personnage n'est pas assez sage
-                echo $this->pseudo . ' s\'acharne sur le cadavre de ' . $quelqu_un->pseudo . '.';
+                $this->luiArrive('Il s\'acharne sur le cadavre de ' . $quelqu_un->pseudo . '.');
         }
     }
 
     public function estSoigne(int $soins) {
         if ($this->estVivant()) {
-            echo $this->pseudo . ' a été soigné de ' . $soins . ' PV.';
+            $this->luiArrive('Il est soigné de ' . $soins . ' PV.');
 
             // On "actualise" les PV du personnage
             $this->pv += $soins;
@@ -94,7 +87,7 @@ class Personnage {
     }
 
     public function subitDegats(int $nombre_degats) {
-        echo $this->pseudo . ' a subi ' . $nombre_degats . ' dégats.';
+        $this->luiArrive('Il subit ' . $nombre_degats . ' dégats.');
 
         // On "actualise" les PV du personnage
         $this->pv -= $nombre_degats;
@@ -102,12 +95,13 @@ class Personnage {
         // Si jamais ses PV tombent en dessous de 0
         // Ce personnage est mort
         if ($this->pv <= 0) {
+            $this->luiArrive('Il trépasse');
             $this->vivant = false;
         }
     }
 
     public function chevauche(Cheval $monture) {
-        echo $this->pseudo . ' chevauche son fidèle destrier.';
+        $this->luiArrive('Il chevauche son fidèle destrier.');
 
         $monture->chevauche();
     }
@@ -133,5 +127,9 @@ class Personnage {
 
     public function getAvatar() {
         return $this->avatar;
+    }
+
+    public function luiArrive(string $happens) {
+        Narrateur::parle($happens, $this);
     }
 }
