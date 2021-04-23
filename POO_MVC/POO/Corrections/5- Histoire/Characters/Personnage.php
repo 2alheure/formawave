@@ -25,7 +25,7 @@ class Personnage {
     public $vivant = true;
     public $guilde;
     protected $alignement;
-    protected $avatar = 'avatar/default.png';
+    protected $avatar = 'avatar/default.jpg';
 
     protected $inventaire;
 
