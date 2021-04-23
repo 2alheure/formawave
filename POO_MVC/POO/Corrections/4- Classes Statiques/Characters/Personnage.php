@@ -5,6 +5,7 @@ namespace Characters;
 use Games\Narrateur;
 use Montures\Cheval;
 use Structures\Guilde;
+use Objects\Weapons\Epee;
 
 /**
  * Créez une classe PHP qui représente un personnage de jeu vidéo (type RPG)
@@ -35,6 +36,28 @@ class Personnage {
         $this->alignement = $alignement;
 
         $this->luiArrive('Il est arrivé dans cette contrée.');
+    }
+
+    public function frappeALEpee(Personnage $quelqu_un, int $bonus_frappe = 0) {
+
+        if ($quelqu_un->guilde == $this->guilde)
+            $this->luiArrive('On tape pas les copains !');
+
+        if ($quelqu_un->estVivant()) {   // Si le personnage qu'on frappe est vivant
+            $this->luiArrive('Il frappe ' . $quelqu_un->pseudo . ' à l\'épée.');
+
+            // Ma formule c'est : La force - 10 % de l'âge du personnage 
+            // (arrondi à l'entier le plus proche)
+            $degats = Epee::DEGATS + round($this->force - $this->age * 0.1) + $bonus_frappe;
+
+            // Le "quelqu'un" subit nos dégats
+            $quelqu_un->subitDegats($degats);
+        } else {
+            // Sinon
+
+            if ($this->sagesse < 10) // Si le personnage n'est pas assez sage
+                $this->luiArrive('Il frappe le cadavre de ' . $quelqu_un->pseudo . '.');
+        }
     }
 
     public function frappe(Personnage $quelqu_un, int $bonus_frappe = 0) {

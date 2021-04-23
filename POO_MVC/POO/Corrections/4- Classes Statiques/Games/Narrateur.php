@@ -36,7 +36,7 @@ class Narrateur {
                     break;
             }
 
-            $printed .= '<img class="avatar mr-2" />'
+            $printed .= '<img class="avatar mr-2" src="' . $personnage->getAvatar() . '" />'
                 . '<b class="text-' . $color . '">' . $personnage->pseudo . '</b>&nbsp;: ';
         }
 
