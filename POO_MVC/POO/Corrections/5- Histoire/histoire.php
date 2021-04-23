@@ -49,6 +49,13 @@ use Objects\Weapons\Couteau;
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <style>
+    .avatar {
+        max-width: 25px;
+        max-height: 25px;
+    }    
+    </style>
 </head>
 
 <body>
@@ -62,9 +69,9 @@ use Objects\Weapons\Couteau;
     $cheval = new Cheval;
     $rodolphe->chevauche($cheval);
 
-    $bandit1 = new Personnage('Bandit One', 30, 'mauvais');
-    $bandit2 = new Personnage('Bandit Two', 30, 'mauvais');
-    $bandit3 = new Personnage('Bandit Three', 30, 'mauvais');
+    $bandit1 = new Personnage('Bandit One', 30, 'mauvais', 'avatar/bandit.png');
+    $bandit2 = new Personnage('Bandit Two', 30, 'mauvais', 'avatar/bandit.png');
+    $bandit3 = new Personnage('Bandit Three', 30, 'mauvais', 'avatar/bandit.png');
     $guilde_de_bandits = new Guilde('Derobator');
     $bandit1->rentreDans($guilde_de_bandits);
     $bandit2->rentreDans($guilde_de_bandits);

@@ -34,10 +34,12 @@ class Personnage {
     protected $magie = 100;
     protected $sagesse = 100;
 
-    public function __construct(string $pseudo, int $age, string $alignement = 'neutre') {
+    public function __construct(string $pseudo, int $age, string $alignement = 'neutre', $avatar = '') {
         $this->pseudo = $pseudo;
         $this->age = $age;
         $this->alignement = $alignement;
+
+        if (!empty($avatar)) $this->avatar = $avatar;
 
         $this->inventaire = array(
             'epee' => new Epee,
@@ -176,6 +178,10 @@ class Personnage {
 
     public function getAvatar() {
         return $this->avatar;
+    }
+
+    public function setAvatar(string $avatar) {
+        $this->avatar = $avatar;
     }
 
     public function luiArrive(string $happens) {
