@@ -8,7 +8,7 @@ namespace Characters;
 
 use Characters\Personnage;
 
-class Paladin {
+class Paladin extends Personnage {
     protected $pv = 500;
     protected $force = 350;
     protected $magie = 200;
