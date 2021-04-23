@@ -84,6 +84,8 @@ use Objects\Weapons\Couteau;
     $rodolphe->utiliseObjet('potion', $rodolphe);
     Couteau::attaque($rodolphe);
 
+    $rodolphe->flecheEnflammee($bandit3);
+
     ?>
 
     <!-- Optional JavaScript -->
