@@ -1,5 +1,10 @@
 <?php
 
+namespace Objects\Heals;
+
+use Games\Narrateur;
+use Characters\Personnage;
+
 /**
  * Créez une classe PHP qui représente un soin (générique)
  * 
@@ -10,3 +15,15 @@
  * 
  * Créez 3 soins distincts
  */
+
+
+class Soin {
+    const SOIN = 25;
+    const NAME = 'Soin';
+
+    static public function soigne(Personnage $quelqu_un) {
+        Narrateur::parle('Un soin (' . self::NAME . ') est utilisé.');
+
+        $quelqu_un->estSoigne(self::SOIN);
+    }
+}
