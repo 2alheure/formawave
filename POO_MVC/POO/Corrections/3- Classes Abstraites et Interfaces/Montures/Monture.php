@@ -19,5 +19,6 @@ abstract class Monture implements Chevauchable {
     public $vitesse;
     public $pv;
 
+    // abstract public function chevauche();
     abstract public function seRepose();
 }
