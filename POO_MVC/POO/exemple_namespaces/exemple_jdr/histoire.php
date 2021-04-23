@@ -18,9 +18,11 @@ function chercherFQCN($fqcn) {
     // FQCN : a\b\c\d
     // Mes fichiers : a/b/c/d.php
 
-    $tableau = explode('\\', $fqcn);      // ['a', 'b', 'c', 'd']
+    // $tableau = explode('\\', $fqcn);      // ['a', 'b', 'c', 'd']
 
-    $fichier = implode('/', $tableau) . '.php'; // 'a/b/c/d.php';
+    // $fichier = implode('/', $tableau) . '.php'; // 'a/b/c/d.php';
+
+    $fichier = str_replace('\\', '/', $fqcn) . '.php';
 
     require_once $fichier;
 }
