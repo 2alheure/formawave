@@ -62,7 +62,7 @@ try {
 
 		default:
 			// Si aucune route ne correspond, on jette une exception
-			throw new App\NotFoundException();
+			throw new NotFoundException();
 	}
 } catch (Exception $e) {
 	// Si l'exception est de type NotFoundException
