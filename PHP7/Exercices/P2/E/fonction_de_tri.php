@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 /** Fin de la partie 2 sur le langage **/
 
@@ -18,4 +18,6 @@ var_dump(trier($tableau));
 /**
  * Complétez la fonction ci-dessous
  */
-function trier($tableau) {}
+function trier($tableau) {
+	return $tableau;
+}

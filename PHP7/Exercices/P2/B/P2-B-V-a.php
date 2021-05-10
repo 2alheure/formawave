@@ -2,7 +2,7 @@
 
 /********* Partie 2 ****************************/
 /********* B. Les instructions de base *********/
-/********* IV. Les tableaux ********************/
+/********* V. Les tableaux ********************/
 /********* a. Le cas simple ********************/
 
 // Nous allons faire un "Le compte est bon".

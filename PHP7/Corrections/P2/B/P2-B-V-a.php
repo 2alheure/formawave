@@ -2,12 +2,12 @@
 
 /********* Partie 2 ****************************/
 /********* B. Les instructions de base *********/
-/********* IV. Les tableaux ********************/
+/********* V. Les tableaux ********************/
 /********* a. Le cas simple ********************/
 
 // Nous allons faire un "Le compte est bon".
 // Déclarez un tableau de 5 nombres (entiers) qui s'appelle nombres
-$nombres = array(5, 7, 12, 50, 100);
+$nombres = array(5, 7, 12, 50, 100); // Equivaut à [5, 7, 12, 50, 100]
 
 // Déclarez une variable `resultat` qui contient un nombre entier
 $resultat = 634;
