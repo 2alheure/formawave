@@ -13,4 +13,6 @@
  * (On n'est pas à une faute de français près. 
  * Il se peut que tout ne s'accorde pas exactement comme voulu, ce n'est pas très grave...
  * Mais essayez de faire au mieux =p)
+ * 
+ * (Copiez-collez vos classes dans ce dossier, et arrangez-les si nécessaire)
  */

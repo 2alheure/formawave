@@ -7,4 +7,5 @@
  * Les actions d'un cheval se résument à :
  * 		- Galoper
  * 		- Prendre la fuite (les lâches)
+ *      - Chevaucher
  */
