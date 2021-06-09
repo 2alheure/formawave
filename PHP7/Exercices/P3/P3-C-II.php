@@ -14,4 +14,6 @@
  * 
  * S'ils correspondent, on affiche une page de succès, 
  * sinon une page d'erreur.
+ * 
+ * (PAS DE JAVASCRIPT)
  */
