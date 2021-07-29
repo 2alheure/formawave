@@ -11,6 +11,7 @@ $str2 = 'Monde';
 $str3 = 'Hello';
 $str4 = 'World';
 
+$espace = ' ';
 $virgule = ',';
 $point_exclamation = '!';
 $point_interrogation = '?';
