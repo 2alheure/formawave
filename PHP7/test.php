@@ -14,6 +14,11 @@
         Et ci-après devrait s'afficher une erreur :<br>
         <?= $test; ?>
     </p>
+
+
+    <p>Ci-après le phpinfo&nbsp;:</p>
+    <?php phpinfo(); ?>
+
 </body>
 
 </html>
