@@ -1,0 +1,11 @@
+Faire le design des BDD données avec les tables demandées (si elles sont nécessaires).
+
+1/ Un site e-commerce classique :
+- produit
+- utilisateur
+- panier
+- commande
+
+2/ Un site de location de voiture
+- utilisateur
+- voiture
