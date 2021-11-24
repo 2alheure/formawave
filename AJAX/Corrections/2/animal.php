@@ -97,7 +97,11 @@ $qualificatif = $adjectifs[$clef_adjectif_hasard];
 
 // var_dump($animal, $qualificatif);
 
-/**
- * On écrit ici le PHP
- * nécessaire à l'exercice
- */
+// echo $animal . ' ' . $qualificatif;
+
+$tableau = [
+    'animal' => $animal,
+    'qualificatif' => $qualificatif
+];
+
+echo json_encode($tableau);

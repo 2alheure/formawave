@@ -11,3 +11,8 @@ $selection = array_slice($nombres, 0, 5);   // On ne sélectionne que 5 nombres
  * On écrit ici le PHP
  * nécessaire à l'exercice
  */
+
+?>
+<?php foreach ($selection as $nombre) : ?>
+    <button class="btn-info text-white btn"><?= $nombre ?></button>
+<?php endforeach; ?>
