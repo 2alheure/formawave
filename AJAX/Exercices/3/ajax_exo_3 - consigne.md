@@ -24,6 +24,8 @@ les données sont chargées et affichées par PHP.
 Pour l'ajout et la suppression, 
 tout doit passer par AJAX, avec une communication en JSON.
 
+Utilisez la fonction fetch pour faire vos appels API.
+
 Faites ce que vous pouvez pour suivre au maximum les bonnes pratiques.
 
 ## Bonus
