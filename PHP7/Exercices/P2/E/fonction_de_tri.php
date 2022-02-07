@@ -20,6 +20,6 @@ echo '</pre>';
 /**
  * Complétez la fonction ci-dessous
  */
-function trier($tableau) {
+function trier(array $tableau): array {
 	return $tableau;
 }

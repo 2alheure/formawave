@@ -20,8 +20,7 @@ echo '</pre>';
 /**
  * Complétez la fonction ci-dessous
  */
-function trier(array $tableau)
-{
+function trier(array $tableau): array {
     // Si le tableau est vide ou n'a qu'un seul élément,
     // pas besoin de le trier
     $count = count($tableau);
