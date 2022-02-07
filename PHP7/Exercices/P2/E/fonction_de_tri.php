@@ -13,7 +13,7 @@ shuffle($tableau);
 // A présent, on appelle notre fonction de tri (définie plus bas)
 // Pour trier notre tableau (et on vérifie qu'il est bien trié)
 echo '<pre>';
-print_r($tableau);
+print_r(trier($tableau));
 echo '</pre>';
 
 
