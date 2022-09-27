@@ -1,0 +1,34 @@
+Faire un CRUD en respectant les bonnes pratiques :
+- Se protéger de la faille XSS (Jour 1)
+- Se protéger des injections SQL (Jour 2)
+- Se protéger des attaques CSRF (Jour 3)
+
+Le CRUD se fera avec les consignes suivantes : 
+    - En MVC
+    - SANS SimpleOrm
+
+Ordre conseillé pour le CRUD :
+    Create   <-- 2
+    Retrieve (1)   <-- 3
+    Retrieve (liste)   <-- 1
+    Update   <-- 5
+    Delete   <-- 4
+
+
+1/ Faire une BDD de test (ou en reprendre une existante)
+    Conseils :
+        - Une table "simple" : quelques (3-4) colonnes, pas de fichier (pas de blob, ni d'upload)
+        - Pas de Foreign Key : pas de jointure
+
+2/ Insérer des données de test
+3/ Faire le retrieve (liste)
+4/ Faire le create      -- Fin jour 1
+5/ Faire le retrieve (1)
+6/ Faire le delete
+7/ Faire le update      -- Fin jour 2
+
+--------------- Jour 3 -----------------
+
+8/ Ajouter une table "utilisateur" 
+9/ Faire une page de connexion
+10/ Protéger les accès aux pages sensibles par connexion

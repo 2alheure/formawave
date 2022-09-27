@@ -9,3 +9,24 @@ Faire le design des BDD données avec les tables demandées (si elles sont néce
 2/ Un site de location de voiture
 - utilisateur
 - voiture
+
+3/ Une agence immobilière
+Concevoir une BDD pour un site proposant des annonces immobilières.
+
+Le client demande également à ce qu'un utilisateur puisse contacter, sur le site, un employé (message privé).
+
+Le client tient également à se faire connaître via une stratégie appelée "marketing de contenu". 
+Cette stratégie repose principalement sur la création de contenus, via les réseaux sociaux etc. 
+Dans notre cas, et pour ce qui nous concerne, cela passe par des billets de blog, que le client tient à proposer sur une section de son site.
+
+4/ Un zoo
+Concevoir une BDD pour un site (intranet + internet) d'un zoo.
+
+Intranet :
+Le site doit permettre de lister les animaux, savoir dans quelle partie du zoo ils se situent, à quel zoo ils ont été prêté (le cas échéant). 
+Le site doit également permettre de suivre, d'un point de vue vétérinaire, les visites des animaux.
+Le site doit permettre l'accès à un organigramme de la société (représentant donc l'employé, son poste, et sa position hiérarchique). Cet organigramme, sur le site, prendra la forme d'un arbre.
+
+Internet :
+Le site doit permettre de gérer les billets / les entrées des visiteurs, autorisant donc les achats en ligne.
+Le site doit également afficher les jours et heures des différentes représentations, et les animaux qui y prennent part.

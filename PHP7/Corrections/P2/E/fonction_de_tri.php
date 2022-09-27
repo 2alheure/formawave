@@ -12,14 +12,15 @@ shuffle($tableau);
 
 // A présent, on appelle notre fonction de tri (définie plus bas)
 // Pour trier notre tableau (et on vérifie qu'il est bien trié)
-var_dump(trier($tableau));
+echo '<pre>';
+print_r(trier($tableau));
+echo '</pre>';
 
 
 /**
  * Complétez la fonction ci-dessous
  */
-function trier(array $tableau)
-{
+function trier(array $tableau): array {
     // Si le tableau est vide ou n'a qu'un seul élément,
     // pas besoin de le trier
     $count = count($tableau);
