@@ -1,0 +1,14 @@
+Vous travaillez pour un groupe de bibliothèques 
+(comprenez une société qui gère PLUSIEURS bibliothèques 
+aux niveaux national et international).
+
+CONCEVEZ, puis IMPLEMENTEZ l'architecture objet du projet d'application.
+
+Bon à savoir : 
+La bibliothèque (comme toute bibliothèque), gère des livres.
+Les livres ont diverses informations parmi lesquelles l'auteur, l'éditeur, ...
+La bibliothèque permet à ses utilisateurs d'emprunter les livres.
+Elle permet également a ses employés d'ajouter, modifier ou supprimer du stock.
+
+La bibltiohèque est internationale. Par conséquent, 
+les divers éléments ne seront pas forcément en français.
