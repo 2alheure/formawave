@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+<div class="flex flex-col justify-center items-center sm:w-3/4 mx-auto">
+    <table class="w-full">
+        <thead class="text-left border-b-2 border-black">
+            <tr>
+                <th>Date de début</th>
+                <th>Dernier coup</th>
+                <th>Plateau</th>
+                <th>Etat</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{ sess.jeu.dateDebut|date('d/m/Y h:i:s') }}</td>
+                <td>{{ sess.jeu.dateDernierCoup|date('d/m/Y h:i:s') }}</td>
+
+                <td>
+                    <table class="border">
+                        {% for x, ligne in sess.jeu.plateau %}
+                        <tr>
+                            {% for y, jeton in ligne %}
+                            <td class="border w-6 h-6">
+                                {% if jeton is not empty %}
+                                <span
+                                    class="rounded-full text-sm w-4 h-4 m-auto justify-center items-center flex shadow {{ jeton.joueur.cssClasses }}">
+                                    {{ jeton.joueur.symbol }}
+                                </span>
+                                {% endif %}
+                            </td>
+                            {% endfor %}
+                        </tr>
+                        {% endfor %}
+                    </table>
+                </td>
+
+                <td>
+                    {% if sess.jeu.estMort %}
+                    <span class="text-blue-500">Match nul</span>
+                    {% elseif sess.jeu.gagnant is same as sess.jeu.joueur1 %}
+                    <span class="text-red-500">Victoire du joueur 1</span>
+                    {% elseif sess.jeu.gagnant is same as sess.jeu.joueur2 %}
+                    <span class="text-green-500">Victoire du joueur 2</span>
+                    {% else %}
+                    Partie en cours
+                    {% endif %}
+                </td>
+            </tr>
+
+            {% for jeu in sess.historique|reverse %}
+            <tr {% if loop.index0 % 2==0 %} class="bg-gray-100" {% endif %}>
+                <td>{{ jeu.dateDebut|date('d/m/Y h:i:s') }}</td>
+                <td>{{ jeu.dateDernierCoup|date('d/m/Y h:i:s') }}</td>
+
+                <td>
+                    <table class="border">
+                        {% for x, ligne in jeu.plateau %}
+                        <tr>
+                            {% for y, jeton in ligne %}
+                            <td class="border w-6 h-6">
+                                {% if jeton is not empty %}
+                                <span
+                                    class="rounded-full text-sm w-4 h-4 m-auto justify-center items-center flex shadow {{ jeton.joueur.cssClasses }}">
+                                    {{ jeton.joueur.symbol }}
+                                </span>
+                                {% endif %}
+                            </td>
+                            {% endfor %}
+                        </tr>
+                        {% endfor %}
+                    </table>
+                </td>
+
+                <td>
+                    {% if jeu.estMort %}
+                    <span class="text-blue-500">Match nul</span>
+                    {% elseif jeu.gagnant is same as jeu.joueur1 %}
+                    <span class="text-red-500">Victoire du joueur 1</span>
+                    {% elseif jeu.gagnant is same as jeu.joueur2 %}
+                    <span class="text-green-500">Victoire du joueur 2</span>
+                    {% else %}
+                    Partie non terminée
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock body %}

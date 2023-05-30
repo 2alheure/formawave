@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+<div class="flex justify-around sm:w-3/4 mx-auto">
+    <p class="px-12 py-4 {% if jeu.tourDe == 1 %}border-2{% endif %}">
+        Joueur 1
+        <span class="rounded-full text-lg w-12 h-12 justify-center items-center flex {{ jeu.joueur1.cssClasses }}">
+            {{ jeu.joueur1.symbol }}
+        </span>
+    </p>
+    <p class="px-12 py-4 {% if jeu.tourDe == 2 %}border-2{% endif %}">
+        Joueur 2
+        <span class="rounded-full text-lg w-12 h-12 justify-center items-center flex {{ jeu.joueur2.cssClasses }}">
+            {{ jeu.joueur2.symbol }}
+        </span>
+    </p>
+</div>
+
+<div class="flex flex-col justify-center items-center sm:w-3/4 mx-auto">
+
+    {% if jeu.erreur %}
+    <p class="bg-red-300 p-8 text-center my-6 w-full">
+        {{ jeu.erreur }}
+    </p>
+    {% endif %}
+
+    {% if jeu.gagnant %}
+    <p class="bg-green-300 p-8 text-center my-6 w-full">
+        Le joueur {{ jeu.tourDe }} a gagné ! Félicitations !
+    </p>
+    {% elseif jeu.estMort %}
+    <p class="bg-blue-300 p-8 text-center my-6 w-full">
+        Match nul !
+    </p>
+    {% endif %}
+
+    <table class="border">
+        {% for x, ligne in jeu.plateau %}
+        <tr>
+            {% for y, jeton in ligne %}
+            <td class="border w-24 h-24">
+                {% if jeton is not empty %}
+                <span
+                    class="rounded-full text-lg w-16 h-16 m-auto justify-center items-center flex shadow {{ jeton.joueur.cssClasses }}">
+                    {{ jeton.joueur.symbol }}
+                </span>
+                {% elseif jeu.gagnant is empty %}
+                <a href="index.php?x={{ x }}&y={{ y }}" class="flex h-full w-full justify-center items-center block">
+                </a>
+                {% endif %}
+            </td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+{% endblock body %}
