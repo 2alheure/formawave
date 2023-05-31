@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block titre %}Accueil - {{ parent() }}{% endblock %}
+
+{% block body %}
+
+<h2 class="my-3">Les articles les plus récents</h2>
+
+{% for a in articles|slice(0, 3) %}
+<div class="rounded border border-black box-shadow-lg my-4 p-4">
+        <h2 class="uppercase text-semibold text-lg">{{ a.titre }}</h2>
+        <p class="text-gray-600 text-sm my-4">Publié le {{ a.datePublication|date('d/m/Y') }}, par {{ a.auteur }}
+        </p>
+        <div>{{ a.contenu }}</div>
+</div>
+{% endfor %}
+{% endblock %}

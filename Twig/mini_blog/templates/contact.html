@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block titre %}
+Contactez-moi
+{% endblock titre %}
+
+{% block body %}
+
+<form action="" method="post" class="flex flex-col gap-8 w-full">
+
+    <div class="w-full">
+        <label for="subject" class="w-1/3">Sujet</label>
+        <input id="subject" type="text" name="subject" class="w-2/3 border">
+    </div>
+
+    <div class="w-full">
+        <label for="email" class="w-1/3">Email</label>
+        <input id="email" type="email" name="email" class="w-2/3 border">
+    </div>
+    
+    <div class="w-full">
+        <label for="message" class="w-1/3">Votre message</label>
+        <textarea name="message" id="message" cols="30" rows="5" class="w-2/3 border"></textarea>
+    </div>
+
+    <input type="submit" value="Envoyer">
+</form>
+
+{% endblock body %}

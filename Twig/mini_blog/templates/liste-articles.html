@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block titre %}
+Liste des articles
+{% endblock titre %}
+
+{% block body %}
+{% for a in articles %}
+<div class="rounded border border-black box-shadow-lg my-4 p-4">
+    <h2 class="uppercase text-semibold text-lg">{{ a.titre }}</h2>
+    <p class="text-gray-600 text-sm my-4">Publié le {{ a.datePublication|date('d/m/Y') }}, par {{ a.auteur }}
+    </p>
+    <div>{{ a.contenu }}</div>
+</div>
+{% endfor %}
+{% endblock body %}
