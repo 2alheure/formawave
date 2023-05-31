@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block titre %}Mon super blog{% endblock %}</title>
+    <title>Accueil - Mon super blog</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
@@ -21,15 +21,24 @@
             <a href="contact.php">Contactez-moi</a>
         </nav>
 
-        <h1 class="text-bold text-2xl my-4">
-            {% block h1 %}{{ block('titre') }}{% endblock %}
-        </h1>
+        <h1 class="text-bold text-2xl my-4">Accueil - Mon super blog</h1>
 
-        {% block body %}{% endblock %}
+
+        <h2 class="my-3">Les articles les plus récents</h2>
+
+        {% for a in articles|slice(0, 3) %}
+        <div class="rounded border border-black box-shadow-lg my-4 p-4">
+            <h2 class="uppercase text-semibold text-lg">{{ a.titre }}</h2>
+            <p class="text-gray-600 text-sm my-4">Publié le {{ a.datePublication|date('d/m/Y') }}, par {{
+                a.auteur }}
+            </p>
+            <div>{{ a.contenu }}</div>
+        </div>
+        {% endfor %}
     </div>
 
     <footer class="flex justify-center items-center my-8">
-        <p>&copy;&nbsp;DWWM33 - {{ 'now'|date('Y') }}</p>
+        <p>&copy;&nbsp;Mon super blog - {{ 'now'|date('Y') }}</p>
     </footer>
 </body>
 

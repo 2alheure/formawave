@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contactez-moi</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+
+    <div class="w-3/4 mx-auto">
+        <nav class="flex gap-8 p-4 justify-center items-center bg-gray-700 text-white">
+            <a href="home.php">
+                <img src="https://picsum.photos/1000" alt="" srcset="" class="w-12 h-12 rounded-full">
+            </a>
+            <a href="home.php">Accueil</a>
+            <a href="liste-articles.php">Liste des articles</a>
+            <a href="contact.php">Contactez-moi</a>
+        </nav>
+
+        <h1 class="text-bold text-2xl my-4">Contactez-moi</h1>
+
+
+        <form action="" method="post" class="flex flex-col gap-8 w-full">
+
+            <div class="w-full">
+                <label for="subject" class="w-1/3">Sujet</label>
+                <input id="subject" type="text" name="subject" class="w-2/3 border">
+            </div>
+
+            <div class="w-full">
+                <label for="email" class="w-1/3">Email</label>
+                <input id="email" type="email" name="email" class="w-2/3 border">
+            </div>
+
+            <div class="w-full">
+                <label for="message" class="w-1/3">Votre message</label>
+                <textarea name="message" id="message" cols="30" rows="5" class="w-2/3 border"></textarea>
+            </div>
+
+            <input type="submit" value="Envoyer">
+        </form>
+
+    </div>
+
+    <footer class="flex justify-center items-center my-8">
+        <p>&copy;&nbsp;Mon super blog - {{ 'now'|date('Y') }}</p>
+    </footer>
+</body>
+
+</html>
