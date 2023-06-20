@@ -4,13 +4,7 @@ Faire le design des BDD données avec les tables demandées (si elles sont néce
 - utilisateur
 - voiture
 
-2/ Un site e-commerce classique :
-- produit
-- utilisateur
-- panier
-- commande
-
-3/ Une agence immobilière
+2/ Une agence immobilière
 Concevoir une BDD pour un site proposant des annonces immobilières.
 
 Le client demande également à ce qu'un utilisateur puisse contacter, sur le site, un employé (message privé).
@@ -19,7 +13,7 @@ Le client tient également à se faire connaître via une stratégie appelée "m
 Cette stratégie repose principalement sur la création de contenus, via les réseaux sociaux etc. 
 Dans notre cas, et pour ce qui nous concerne, cela passe par des billets de blog, que le client tient à proposer sur une section de son site.
 
-4/ Un zoo
+3/ Un zoo
 Concevoir une BDD pour un site (intranet + internet) d'un zoo.
 
 Intranet :
