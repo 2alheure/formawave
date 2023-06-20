@@ -1,14 +1,14 @@
 Faire le design des BDD données avec les tables demandées (si elles sont nécessaires).
 
-1/ Un site e-commerce classique :
+1/ Un site de location de voiture
+- utilisateur
+- voiture
+
+2/ Un site e-commerce classique :
 - produit
 - utilisateur
 - panier
 - commande
-
-2/ Un site de location de voiture
-- utilisateur
-- voiture
 
 3/ Une agence immobilière
 Concevoir une BDD pour un site proposant des annonces immobilières.
