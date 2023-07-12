@@ -1,0 +1,13 @@
+Mathématiques :
+- allons_au_bois = 1 + 2 + 3
+- Δ = ax + b
+- périmètre = 2πr
+- surface = 2πr²
+- zéro_absolu = -373
+
+
+Recette :
+- Laver et couper les légumes en petits bâtonnets.
+- Faire revenir une gousse d'ail dans un peu de beurre et ajouter les légumes.
+- Les faire rissoler environ un quart d'heure en les brassant régulièrement.
+- Ajouter la crème fraiche et assaisonner à votre goût.
