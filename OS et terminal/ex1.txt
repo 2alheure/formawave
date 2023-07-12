@@ -1,0 +1,17 @@
+CRUD sur les fichiers
+- Créer
+- Ecrire
+- Lister
+- Afficher
+- Supprimer
+- Renommer
+- Copier
+
+CRUD sur les dossiers
+- Créer 
+- Supprimer
+- Renommer
+- Lister
+- Se déplacer
+
+(N'hésitez pas à faire tout ça dans **différents** dossiers pour manipuler l'arborescence (se déplacer, etc))
