@@ -2,7 +2,6 @@
 
 session_start();
 
-require_once __DIR__ . '/functions.php';
 require __DIR__ . '/vendor/autoload.php';
 
 function fqcn_to_file_path(string $fqcn) {
@@ -10,12 +9,13 @@ function fqcn_to_file_path(string $fqcn) {
 }
 spl_autoload_register('fqcn_to_file_path');
 
-use App\Config;
-use App\FlashSession;
 use Controllers\AuthController;
 use Controllers\StaticController;
 use App\Exceptions\AccessDeniedException;
 use App\Exceptions\NotFoundException;
+
+require_once __DIR__ . '/helpers/main.php';
+require_once __DIR__ . '/helpers/session_flash.php';
 
 $route = $_SERVER['PATH_INFO'] ?? '/home';
 
