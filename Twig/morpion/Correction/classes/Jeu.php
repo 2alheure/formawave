@@ -30,7 +30,6 @@ class Jeu {
         $this->joueur2 = new Joueur('O', 'bg-green-500 text-white');
 
         $this->joueurQuiJoue = $this->joueur1;
-        $this->gagnant = null;
 
         $this->dateDebut = new DateTime;
     }
