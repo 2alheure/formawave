@@ -1,18 +1,24 @@
 # L'architecture MVC
 
 - [L'architecture MVC](#larchitecture-mvc)
+  - [Installation](#installation)
   - [Le MVC classique](#le-mvc-classique)
     - [Contrôleur frontal](#contrôleur-frontal)
     - [Contrôleurs](#contrôleurs)
     - [Modèles](#modèles)
     - [Vues](#vues)
   - [Autour du MVC](#autour-du-mvc)
+    - [Architecture de dossiers](#architecture-de-dossiers)
     - [URL rewriting](#url-rewriting)
     - [Fonctions d'aide](#fonctions-daide)
+    - [Un meilleur var\_dump](#un-meilleur-var_dump)
     - [Objets génériques](#objets-génériques)
       - [Les Exception](#les-exception)
       - [La Config](#la-config)
       - [Les sessions flash](#les-sessions-flash)
+
+## Installation
+Pour tester ce projet, pensez à faire un `composer install`.  
 
 ## Le MVC classique
 
@@ -41,6 +47,11 @@ Dans cet exemple, tous mes modèles se trouvent dans le dossier `src/views` et s
 
 ## Autour du MVC
 
+### Architecture de dossiers
+Tout le code *exécutif* se trouve dans le dossier `src`. On y retrouve donc les modèles, les vues et les contrôleurs (`src/Controllers`) mais également d'autres classes utiles dans `src/App` et des fonctions utilitaires à portée globale dans `src/helpers`.  
+Les *assets*, donc les fichiers annexes du site, tels que css, js et images sont dans le dossier `assets`.  
+Le routeur se trouve à la racine, avec les fichiers de *Composer*.
+
 ### URL rewriting
 Le *router* doit recevoir le nom de la route pour pouvoir rediriger vers le bon contrôleur. Cette route est un paramètre de l'URL, passé sous la forme `/<nom de la route>`. De ce fait, toutes nos URL ressemblent à `http://mon-site.com/<nom de la route>`.  
 Dans un site un peu plus conséquent, on utiliserait un fichier `.htaccess` pour gérer ça. Là, on va se contenter d'exploiter le comportement natif des serveurs qui est de rediriger toute requête formulée sans nom de fichier vers `index.php`.  
@@ -64,6 +75,12 @@ Ces fonctions sont, pour cet exemple :
 - `upload([file], 'directory')` : réalise l'upload d'un fichier (donné par `$_FILES`) dans le dossier spécifié. Renvoie le nom du nouveau fichier, généré par la fonction.  
   
 Ces *fonctions d'aide* seront stockées dans le dossier `src/helpers` et le fichier `src/helpers/main.php` sera automatiquement chargé dans le *contrôleur frontal*.
+
+### Un meilleur var_dump
+Pour améliorer la lisibilité des `var_dump()`, ce prototype intègre la dépendance `symfony/var-dumper`. Elle est déjà prise en charge par le projet.  
+Cette dépendance offre deux fonctions globales :
+- `dump(variable)` : affiche un équivalent de `var_dump()` pour la (ou les) variable donnée. L'affichage est bien plus aisé à exploiter.
+- `dd(variable)` : abbréviation de *dump & die*. Tout est dans le nom.
 
 ### Objets génériques
 On risque d'avoir besoin d'objets qui reviendront souvent. Ces objets concerneront, par exemple, la base de données, ou bien un service générique comme l'envoi de mail, ou encore des éléments métiers récurrents. Les exceptions de notre application pourront également s'y trouver.  
