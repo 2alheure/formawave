@@ -10,7 +10,8 @@ class AuthController {
     }
 
     static function processLoginForm() {
-        if (empty($_POST['login']) || $_POST['password']) {
+        if (empty($_POST['login']) || empty($_POST['password'])) {
+            add_flash('error', 'Les deux champs sont requis.');
             redirect('/login');
         }
 
@@ -20,16 +21,22 @@ class AuthController {
             $user === false // Wrong login
             || !password_verify($_POST['password'], $user->password) // Wrong password
         ) {
+            add_flash('error', 'Identifiants invalides.');
             redirect('/login');
         }
 
+        add_flash('success', 'Vous êtes à présent connecté.');
         $_SESSION['user'] = $user;
 
         redirect('/home');
     }
 
     static function logout() {
-        session_destroy();
+        // We don't "destroy" the session as we want to keep the flashes
+        // But we unset the user
+        unset($_SESSION['user']); 
+        
+        add_flash('success', 'Vous êtes à présent déconnecté.');
         redirect('/home');
     }
 }

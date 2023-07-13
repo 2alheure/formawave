@@ -30,9 +30,9 @@ function is_connected(): bool {
  * Can also return a property of the connected user
  * 
  * @param ?string $property The property to return (null for full object)
- * @return object|null The connected user, or null if not connected
+ * @return mixed The connected user, or null if not connected
  */
-function user(?string $property = null): object|null {
+function user(?string $property = null): mixed {
     $ret = null;
 
     if (is_connected()) {
@@ -87,7 +87,7 @@ function error(string $message = 'An unexpected error occured', int $code = 500)
  * @return void
  * @throws AccessDeniedException
  */
-function error403($message = 'Page not found') {
+function error403($message = 'Access denied') {
     throw new AccessDeniedException($message);
 }
 

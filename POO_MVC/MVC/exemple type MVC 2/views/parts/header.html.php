@@ -31,7 +31,7 @@
                 <a href="<?= url('/logout') ?>" class="hover:underline">Se déconnecter</a>
                 <a href="" class="hover:underline flex gap-2 items-center ml-auto">
                     <img src="<?= user('image') ?>" alt="" class="bg-gray-500 w-10 h-10 object-cover rounded-full">
-                    <?= user('pseudo') ?>
+                    <?= user('prenom') ?> <?= mb_strtoupper(user('nom')) ?>
                 </a>
             <?php else : ?>
                 <a href="<?= url('/login') ?>" class="hover:underline">Se connecter</a>
@@ -42,3 +42,12 @@
     </header>
 
     <div class="container mx-auto">
+
+        <?php foreach (flashes() as $type => $flashes) {
+            foreach ($flashes as $message) { ?>
+                <div class="rounded p-4 w-1/2 mx-auto my-4 <?= flash_style($type) ?>">
+                    <span class="font-bold text-lg"><?= flash_name($type) ?>&nbsp;:</span>
+                    <?= $message ?>
+                </div>
+        <?php }
+        } ?>

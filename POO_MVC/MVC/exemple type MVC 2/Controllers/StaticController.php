@@ -4,6 +4,6 @@ namespace Controllers;
 
 class StaticController {
     static function displayHomepage() {
-        include view('home');
+        include view('static/home');
     }
 }

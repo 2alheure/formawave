@@ -9,6 +9,7 @@ function fqcn_to_file_path(string $fqcn) {
 }
 spl_autoload_register('fqcn_to_file_path');
 
+use App\FlashSession;
 use Controllers\AuthController;
 use Controllers\StaticController;
 use App\Exceptions\AccessDeniedException;
@@ -40,6 +41,15 @@ try {
             AuthController::logout();
             break;
 
+        case '/error/403':  // Pour tester la page 403
+            error403();
+
+        case '/error/404':  // Pour tester la page 404
+            error404();
+
+        case '/error/500':  // Pour tester la page 500
+            error();
+
         default:
             error404();
     }
@@ -53,3 +63,5 @@ try {
     write_log($e->getMessage(), 'error');
     include view('errors/500');
 }
+
+FlashSession::clear();
