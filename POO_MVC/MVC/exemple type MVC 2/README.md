@@ -10,6 +10,7 @@
     - [URL rewriting](#url-rewriting)
     - [Fonctions d'aide](#fonctions-daide)
     - [Objets génériques](#objets-génériques)
+      - [Les Exception](#les-exception)
       - [La Config](#la-config)
       - [Les sessions flash](#les-sessions-flash)
 
@@ -26,17 +27,17 @@ Il est également utile, puisque que tout passe par lui, pour faire toute la log
 
 ### Contrôleurs
 Les *contrôleurs* représentent la **partie logique** de notre application. Ils sont également en charge de la coordination entre modèles et vues.  
-Dans cet exemple, tous mes contrôleurs se trouvent dans le dossier `Controllers` et font partie du namespace `Controllers`.
+Dans cet exemple, tous mes contrôleurs se trouvent dans le dossier `src/Controllers` et font partie du namespace `Controllers`.
 
 ### Modèles
 Les *modèles* représentent **l'interaction avec la donnée** dans notre application. Ce sont eux qui, notamment, vont interagir avec la ase de données. Mais pas seulement.  
 En effet, s'il faut aller chercher des données autre part (par exemple : appel API, lecture de fichiers, ...) c'est également de leur ressort.  
-Dans cet exemple, tous mes modèles se trouvent dans le dossier `Models` et font partie du namespace `Models`. Tous les modèles étendent également `Models\BaseModel` pour avoir un accès facilité à la base de données.  
+Dans cet exemple, tous mes modèles se trouvent dans le dossier `src/Models` et font partie du namespace `Models`. Tous les modèles étendent également `Models\BaseModel` pour avoir un accès facilité à la base de données.  
 Par ailleurs, le modèle de base propose une connexion à la BDD, et règle le "mode de fetch" sur `PDO::FETCH_OBJ` (objet) par défaut.
 
 ### Vues
 Les *vues* représentent la **partie "visuelle"** de notre application. Elles sont notamment chargées de renvoyer au client le HTML représentatn la page demandée.  
-Dans cet exemple, tous mes modèles se trouvent dans le dossier `views` et sont de simples fichiers `.php` qui écrivent du HTML.
+Dans cet exemple, tous mes modèles se trouvent dans le dossier `src/views` et sont de simples fichiers `(.html).php` qui écrivent du HTML.
 
 ## Autour du MVC
 
@@ -62,11 +63,17 @@ Ces fonctions sont, pour cet exemple :
 - `write_log('message', 'type')` : écrit un message dans les logs. Le message sera catégorisé comme `TYPE` (par exemple : ERROR, DEBUG, ...).
 - `upload([file], 'directory')` : réalise l'upload d'un fichier (donné par `$_FILES`) dans le dossier spécifié. Renvoie le nom du nouveau fichier, généré par la fonction.  
   
-Ces *fonctions d'aide* seront stockées dans le dossier `helpers` et le fichier `helpers/main.php` sera automatiquement chargé dans le *contrôleur frontal*.
+Ces *fonctions d'aide* seront stockées dans le dossier `src/helpers` et le fichier `src/helpers/main.php` sera automatiquement chargé dans le *contrôleur frontal*.
 
 ### Objets génériques
 On risque d'avoir besoin d'objets qui reviendront souvent. Ces objets concerneront, par exemple, la base de données, ou bien un service générique comme l'envoi de mail, ou encore des éléments métiers récurrents. Les exceptions de notre application pourront également s'y trouver.  
 Ces objets (ou plutôt leurs classes) seront stockés dans le dossier `App` et placé sous le namespace `App`.
+
+#### Les Exception
+Vous trouverez dans ce projet deux exceptions personnalisées :
+- `NotFoundException`, pour représenter les erreurs 404.
+- `AccessDeniedException`, pour représenter les erreurs 403.  
+Ces exceptions font partie du namespace `App\Exceptions` et sont dans le dossier `src/App/Exceptions`.
 
 #### La Config
 Les variables d'environnement sont stockées dans `App\Config`. Elles sont accessibles globalement.
@@ -74,3 +81,7 @@ Les variables d'environnement sont stockées dans `App\Config`. Elles sont acces
 #### Les sessions flash
 Une fonctionnalité pratique est de permettre de stocker des petites informations dans la session pour les transmettre d'une page à une autre. Ces informations sont ensuite détruites. Par exemple : les message d'alerte.  
 Ce comportement s'appelle "Session Flash". La classe `App\FlashSession` vous propose de vous aider à les gérer, notamment via des méthodes (statiques). Un *helper* (`session_flash.php`) est également disponible pour proposer des raccourcis syntaxiques :
+- `flashes('type')` : Raccourci pour `FlashSession::getAll()` (si pas de type donné) ou bien `FlashSession::getType('type')`.
+- `add_flash('type', 'message')` : Raccourci syntaxique pour `FlashSession::add('type', 'message')`.
+- `flash_style('type')` : Raccourci syntaxique pour `FlashSession::getFullStyle('type')`.
+- `flash_name('type')` : Raccourci syntaxique pour `FlashSession::getName('type')`.
