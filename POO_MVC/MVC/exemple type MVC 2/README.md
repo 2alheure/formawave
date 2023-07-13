@@ -48,9 +48,10 @@ Dans cet exemple, tous mes modèles se trouvent dans le dossier `src/views` et s
 ## Autour du MVC
 
 ### Architecture de dossiers
-Tout le code *exécutif* se trouve dans le dossier `src`. On y retrouve donc les modèles, les vues et les contrôleurs (`src/Controllers`) mais également d'autres classes utiles dans `src/App` et des fonctions utilitaires à portée globale dans `src/helpers`.  
+Tout le code *exécutif* se trouve dans le dossier `src`. On y retrouve donc les modèles (`src/Models`), les vues (`src/views`) et les contrôleurs (`src/Controllers`) mais également d'autres classes utiles dans `src/App` et des fonctions utilitaires à portée globale dans `src/helpers`.  
 Les *assets*, donc les fichiers annexes du site, tels que css, js et images sont dans le dossier `assets`.  
-Le routeur se trouve à la racine, avec les fichiers de *Composer*.
+Le routeur (`index.php`) se trouve à la racine, avec les fichiers de *Composer* (`composer.json` et `composer.lock`, puis le dossier `vendor`).  
+Les éventuels fichiers de *logs* sont stockés dans un dossier `logs`, lui également à la racine du projet.
 
 ### URL rewriting
 Le *router* doit recevoir le nom de la route pour pouvoir rediriger vers le bon contrôleur. Cette route est un paramètre de l'URL, passé sous la forme `/<nom de la route>`. De ce fait, toutes nos URL ressemblent à `http://mon-site.com/<nom de la route>`.  
