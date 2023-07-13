@@ -25,7 +25,7 @@ class Config {
     /**
      * The directory where to store logs
      */
-    const LOGS_DIR = __DIR__ . '/../logs';
+    const LOGS_DIR = __DIR__ . '/../../logs';
 
     /**
      * The directory where views are stored
