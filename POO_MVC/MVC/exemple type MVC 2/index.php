@@ -5,7 +5,7 @@ session_start();
 require __DIR__ . '/vendor/autoload.php';
 
 function fqcn_to_file_path(string $fqcn) {
-    require_once __DIR__ . '/' . str_replace('\\', '/', $fqcn) . '.php';
+    require_once __DIR__ . '/src/' . str_replace('\\', '/', $fqcn) . '.php';
 }
 spl_autoload_register('fqcn_to_file_path');
 
