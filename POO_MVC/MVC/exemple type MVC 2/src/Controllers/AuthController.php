@@ -34,9 +34,13 @@ class AuthController {
     static function logout() {
         // We don't "destroy" the session as we want to keep the flashes
         // But we unset the user
-        unset($_SESSION['user']); 
-        
+        unset($_SESSION['user']);
+
         add_flash('success', 'Vous êtes à présent déconnecté.');
         redirect('/home');
+    }
+
+    static function displayProfile() {
+        dd(user());
     }
 }

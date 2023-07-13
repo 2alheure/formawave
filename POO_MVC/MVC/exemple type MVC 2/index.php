@@ -41,6 +41,10 @@ try {
             AuthController::logout();
             break;
 
+        case '/profile':
+            AuthController::displayProfile();
+            break;
+
         case '/error/403':  // Pour tester la page 403
             error403();
 

@@ -29,7 +29,7 @@
 
             <?php if (is_connected()) : ?>
                 <a href="<?= url('/logout') ?>" class="hover:underline">Se déconnecter</a>
-                <a href="" class="hover:underline flex gap-2 items-center ml-auto">
+                <a href="<?= url('/profile') ?>" class="hover:underline flex gap-2 items-center ml-auto">
                     <img src="<?= user('image') ?>" alt="" class="bg-gray-500 w-10 h-10 object-cover rounded-full">
                     <?= user('prenom') ?> <?= mb_strtoupper(user('nom')) ?>
                 </a>
