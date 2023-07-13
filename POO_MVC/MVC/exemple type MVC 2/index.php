@@ -15,8 +15,8 @@ use Controllers\StaticController;
 use App\Exceptions\AccessDeniedException;
 use App\Exceptions\NotFoundException;
 
-require_once __DIR__ . '/helpers/main.php';
-require_once __DIR__ . '/helpers/session_flash.php';
+require_once __DIR__ . '/src/helpers/main.php';
+require_once __DIR__ . '/src/helpers/session_flash.php';
 
 $route = $_SERVER['PATH_INFO'] ?? '/home';
 
