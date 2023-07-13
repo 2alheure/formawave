@@ -1,3 +1,3 @@
 logs/
 vendor/
-App/Config.php
+src/App/Config.php
