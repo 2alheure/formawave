@@ -42,7 +42,7 @@ Dans cet exemple, tous mes modèles se trouvent dans le dossier `src/Models` et 
 Par ailleurs, le modèle de base propose une connexion à la BDD, et règle le "mode de fetch" sur `PDO::FETCH_OBJ` (objet) par défaut.
 
 ### Vues
-Les *vues* représentent la **partie "visuelle"** de notre application. Elles sont notamment chargées de renvoyer au client le HTML représentatn la page demandée.  
+Les *vues* représentent la **partie "visuelle"** de notre application. Elles sont notamment chargées de renvoyer au client le HTML représentant la page demandée.  
 Dans cet exemple, tous mes modèles se trouvent dans le dossier `src/views` et sont de simples fichiers `(.html).php` qui écrivent du HTML.
 
 ## Autour du MVC

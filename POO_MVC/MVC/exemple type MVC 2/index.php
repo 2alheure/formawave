@@ -4,7 +4,12 @@ session_start();
 
 require __DIR__ . '/vendor/autoload.php';
 
+/**
+ * Given an FQCN, requires the correct file
+ * @param string $fqcn
+ */
 function fqcn_to_file_path(string $fqcn) {
+    // We have to look into src folder
     require_once __DIR__ . '/src/' . str_replace('\\', '/', $fqcn) . '.php';
 }
 spl_autoload_register('fqcn_to_file_path');
