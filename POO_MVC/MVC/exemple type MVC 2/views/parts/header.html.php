@@ -19,8 +19,8 @@
     <link rel="stylesheet" href="<?= asset('css/style.css') ?>">
 </head>
 
-<body>
-    <header class="bg-gray-800 text-white">
+<body class="min-h-screen flex flex-col">
+    <header class="bg-gray-800 text-white mb-8">
         <!-- Menu -->
         <nav class="flex p-4 gap-8 items-center container mx-auto">
 
@@ -41,7 +41,7 @@
         </nav>
     </header>
 
-    <div class="container mx-auto">
+    <div class="container mx-auto grow">
 
         <?php foreach (flashes() as $type => $flashes) {
             foreach ($flashes as $message) { ?>
