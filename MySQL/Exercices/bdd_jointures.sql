@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : lun. 24 mars 2025 à 12:00
+-- Généré le : lun. 24 mars 2025 à 12:30
 -- Version du serveur : 10.4.27-MariaDB
 -- Version de PHP : 8.2.0
 
@@ -378,31 +378,38 @@ INSERT INTO `vehicules` (`id`, `modele`, `carburant`, `categorie`, `marque_id`, 
 -- Index pour la table `articles`
 --
 ALTER TABLE `articles`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_article_statut` (`statut_id`),
+  ADD KEY `fk_article_auteur` (`auteur_id`);
 
 --
 -- Index pour la table `commandes`
 --
 ALTER TABLE `commandes`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_commande_utilisateur` (`utilisateur_id`);
 
 --
 -- Index pour la table `commandes_produits`
 --
 ALTER TABLE `commandes_produits`
-  ADD PRIMARY KEY (`commande_id`,`produit_id`);
+  ADD PRIMARY KEY (`commande_id`,`produit_id`),
+  ADD KEY `fk_commande_produit_produit` (`produit_id`);
 
 --
 -- Index pour la table `commentaires`
 --
 ALTER TABLE `commentaires`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_commentaire_utilisateur` (`utilisateur_id`),
+  ADD KEY `fk_commentaire_article` (`article_id`);
 
 --
 -- Index pour la table `episodes`
 --
 ALTER TABLE `episodes`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_episode_saison` (`saison_id`);
 
 --
 -- Index pour la table `livres`
@@ -444,7 +451,8 @@ ALTER TABLE `roles`
 -- Index pour la table `saisons`
 --
 ALTER TABLE `saisons`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_saison_serie` (`serie_id`);
 
 --
 -- Index pour la table `series`
@@ -462,19 +470,23 @@ ALTER TABLE `statuts`
 -- Index pour la table `utilisateurs`
 --
 ALTER TABLE `utilisateurs`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_utilisateur_role` (`role_id`);
 
 --
 -- Index pour la table `utilisateurs_livres`
 --
 ALTER TABLE `utilisateurs_livres`
-  ADD PRIMARY KEY (`utilisateur_id`,`livre_id`);
+  ADD PRIMARY KEY (`utilisateur_id`,`livre_id`),
+  ADD KEY `fk_utilisateur_livre_livre` (`livre_id`);
 
 --
 -- Index pour la table `vehicules`
 --
 ALTER TABLE `vehicules`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_vehicule_marque` (`marque_id`),
+  ADD KEY `fk_vehicule_proprietaire` (`proprietaire_id`);
 
 --
 -- AUTO_INCREMENT pour les tables déchargées
@@ -569,6 +581,69 @@ ALTER TABLE `utilisateurs`
 --
 ALTER TABLE `vehicules`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- Contraintes pour les tables déchargées
+--
+
+--
+-- Contraintes pour la table `articles`
+--
+ALTER TABLE `articles`
+  ADD CONSTRAINT `fk_article_auteur` FOREIGN KEY (`auteur_id`) REFERENCES `utilisateurs` (`id`),
+  ADD CONSTRAINT `fk_article_statut` FOREIGN KEY (`statut_id`) REFERENCES `statuts` (`id`);
+
+--
+-- Contraintes pour la table `commandes`
+--
+ALTER TABLE `commandes`
+  ADD CONSTRAINT `fk_commande_utilisateur` FOREIGN KEY (`utilisateur_id`) REFERENCES `utilisateurs` (`id`);
+
+--
+-- Contraintes pour la table `commandes_produits`
+--
+ALTER TABLE `commandes_produits`
+  ADD CONSTRAINT `fk_commande_produit_commande` FOREIGN KEY (`commande_id`) REFERENCES `commandes` (`id`),
+  ADD CONSTRAINT `fk_commande_produit_produit` FOREIGN KEY (`produit_id`) REFERENCES `produits` (`id`);
+
+--
+-- Contraintes pour la table `commentaires`
+--
+ALTER TABLE `commentaires`
+  ADD CONSTRAINT `fk_commentaire_article` FOREIGN KEY (`article_id`) REFERENCES `articles` (`id`),
+  ADD CONSTRAINT `fk_commentaire_utilisateur` FOREIGN KEY (`utilisateur_id`) REFERENCES `utilisateurs` (`id`);
+
+--
+-- Contraintes pour la table `episodes`
+--
+ALTER TABLE `episodes`
+  ADD CONSTRAINT `fk_episode_saison` FOREIGN KEY (`saison_id`) REFERENCES `saisons` (`id`);
+
+--
+-- Contraintes pour la table `saisons`
+--
+ALTER TABLE `saisons`
+  ADD CONSTRAINT `fk_saison_serie` FOREIGN KEY (`serie_id`) REFERENCES `series` (`id`);
+
+--
+-- Contraintes pour la table `utilisateurs`
+--
+ALTER TABLE `utilisateurs`
+  ADD CONSTRAINT `fk_utilisateur_role` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`);
+
+--
+-- Contraintes pour la table `utilisateurs_livres`
+--
+ALTER TABLE `utilisateurs_livres`
+  ADD CONSTRAINT `fk_utilisateur_livre_livre` FOREIGN KEY (`livre_id`) REFERENCES `livres` (`id`),
+  ADD CONSTRAINT `fk_utilisateur_livre_utilisateur` FOREIGN KEY (`utilisateur_id`) REFERENCES `utilisateurs` (`id`);
+
+--
+-- Contraintes pour la table `vehicules`
+--
+ALTER TABLE `vehicules`
+  ADD CONSTRAINT `fk_vehicule_marque` FOREIGN KEY (`marque_id`) REFERENCES `marques` (`id`),
+  ADD CONSTRAINT `fk_vehicule_proprietaire` FOREIGN KEY (`proprietaire_id`) REFERENCES `utilisateurs` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
